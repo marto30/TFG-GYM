@@ -17,6 +17,7 @@
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:text="Configuracion"
+        android:textColor="?attr/primaryTextColor"
         android:layout_marginBottom="620dp" />
 
     <Button
@@ -33,6 +34,7 @@
         android:layout_marginBottom="500dp"
         android:background="@color/black"
         android:text="Modo oscuro"
+        android:src="?attr/iconPlaceholder"
         android:textColor="@color/white" />
 
     <Button
@@ -48,6 +50,7 @@
         android:layout_marginRight="250dp"
         android:layout_marginBottom="440dp"
         android:text="Notificaciones"
+        android:src="?attr/iconPlaceholder"
         android:textColor="@color/black" />
 
     <Button
@@ -63,6 +66,7 @@
         android:layout_marginRight="250dp"
         android:layout_marginBottom="390dp"
         android:text="Darse de baja"
+        android:src="?attr/iconPlaceholder"
         android:textColor="@color/black" />
 
     <Button
@@ -78,5 +82,6 @@
         android:layout_marginRight="250dp"
         android:layout_marginBottom="340dp"
         android:text="Privacidad"
+        android:src="?attr/iconPlaceholder"
         android:textColor="@color/black" />
 </RelativeLayout>

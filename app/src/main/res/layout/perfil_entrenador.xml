@@ -239,7 +239,8 @@
         android:layout_marginEnd="200dp"
         android:layout_marginRight="200dp"
         android:layout_marginBottom="60dp"
-        android:text="Descripción:" />
+        android:text="Disciplinas:" />
+
     <EditText
         android:id="@+id/TextDisciplinasedit"
         android:layout_width="180dp"
@@ -264,7 +265,7 @@
         android:layout_marginEnd="200dp"
         android:layout_marginRight="200dp"
         android:layout_marginBottom="20dp"
-        android:text="Descripción:" />
+        android:text="Precio:" />
     <EditText
         android:id="@+id/TextPrecioedit"
         android:layout_width="180dp"
@@ -290,5 +291,18 @@
         android:layout_marginRight="120dp"
         android:layout_marginBottom="-20dp"
         android:text="Estrellas:" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginBottom="-20dp"
+        />
 
 </RelativeLayout>
