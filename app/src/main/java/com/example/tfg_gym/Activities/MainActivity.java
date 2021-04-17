@@ -8,6 +8,10 @@ import com.tema7.tema7ejemplo2.R;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {

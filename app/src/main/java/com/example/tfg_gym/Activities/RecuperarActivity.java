@@ -11,10 +11,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tfg_gym.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.tema7.tema7ejemplo2.R;
 
 public class RecuperarActivity extends AppCompatActivity {
     private EditText rstEmail;

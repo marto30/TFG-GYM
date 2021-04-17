@@ -19,12 +19,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tfg_gym.R;
 import com.example.tfg_gym.Util.Util;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.tema7.tema7ejemplo2.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

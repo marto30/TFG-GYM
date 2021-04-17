@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
     private void changeFragment(Fragment fragment, MenuItem item) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content_frame, fragment)
+                .replace(R.id.content, fragment)
                 .commit();
         item.setChecked(true);
         getSupportActionBar().setTitle(item.getTitle());
