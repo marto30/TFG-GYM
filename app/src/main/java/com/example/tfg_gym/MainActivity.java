@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
+import com.tema7.tema7ejemplo2.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -13,15 +15,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.perfil_cliente);
         SharedPreferences mPrefs =  PreferenceManager.getDefaultSharedPreferences(this);
-        this.isNightModeEnabled = mPrefs.getBoolean(“NIGHT_MODE”, false);
+
     }
 
-    public boolean isNightModeEnabled() {
-        return isNightModeEnabled;
-    }
-
-    public void setIsNightModeEnabled(boolean isNightModeEnabled) {
-        this.isNightModeEnabled = isNightModeEnabled;
-    }
 
 }
