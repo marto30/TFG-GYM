@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.TrabajaConNosotrosFragment">
+
+        <TextView
+            android:id="@+id/TextTitulo"
+            android:layout_width="232dp"
+            android:layout_height="37dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="80dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="620dp"
+            android:text="¿Quieres trabajar con nostros?" />
+
+        <TextView
+            android:id="@+id/Textinfo"
+            android:layout_width="376dp"
+            android:layout_height="102dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="250dp"
+            android:layout_marginBottom="410dp"
+            android:text="Si desea trabajar con nosotros envie un correo al siguente correo electrinico ayuda@entrenador.es.
+            Indicandonos tu nombre, procedencia y adjuntando su curriculum. " />
+
+</RelativeLayout>

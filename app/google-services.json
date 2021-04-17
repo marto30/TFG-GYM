@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "472590089455",
+    "project_id": "entrenamientopersonalapp",
+    "storage_bucket": "entrenamientopersonalapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472590089455:android:dc723f326dfa9c24c46f1a",
+        "android_client_info": {
+          "package_name": "com.tema7.tema7ejemplo2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472590089455-1cl9jfhlog9k9fi7bba1ucfu32m3n61n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuYG0_EAsAD2KOrEj13Z973MlWrmzeYIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472590089455-1cl9jfhlog9k9fi7bba1ucfu32m3n61n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
