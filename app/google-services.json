@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "472590089455",
-    "project_id": "entrenamientopersonalapp",
-    "storage_bucket": "entrenamientopersonalapp.appspot.com"
+    "project_number": "562285889462",
+    "project_id": "tfg-gym",
+    "storage_bucket": "tfg-gym.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:472590089455:android:dc723f326dfa9c24c46f1a",
+        "mobilesdk_app_id": "1:562285889462:android:25a62011a9e52658cb2317",
         "android_client_info": {
           "package_name": "com.tema7.tema7ejemplo2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "472590089455-1cl9jfhlog9k9fi7bba1ucfu32m3n61n.apps.googleusercontent.com",
+          "client_id": "562285889462-bd5e2qjmbjenh6gl7u7lsgrefj3lb2p8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tema7.tema7ejemplo2",
+            "certificate_hash": "6ed408d7ac277658457275e0e47db9124a3baaba"
+          }
+        },
+        {
+          "client_id": "562285889462-9k3q3j08udbotk4s1g1v35eqdugb10ou.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBuYG0_EAsAD2KOrEj13Z973MlWrmzeYIw"
+          "current_key": "AIzaSyAsZBUfpAllOeB2cYe1bPN4CBKo5niG9UY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "472590089455-1cl9jfhlog9k9fi7bba1ucfu32m3n61n.apps.googleusercontent.com",
+              "client_id": "562285889462-9k3q3j08udbotk4s1g1v35eqdugb10ou.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

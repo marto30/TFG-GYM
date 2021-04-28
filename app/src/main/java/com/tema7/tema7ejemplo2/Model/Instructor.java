@@ -3,7 +3,7 @@ package com.tema7.tema7ejemplo2.Model;
 public class Instructor extends Usuario{
 
     private String horarDisponib;
-    private String descripPorfesional;
+    private String descripProfesional;
     private String disciplinas;
     private String precioHora;
     private String valoraciones;
@@ -12,10 +12,10 @@ public class Instructor extends Usuario{
     public Instructor() {
     }
 
-    public Instructor(String id, String foto, String nombre, String apellidos, int telefono, String sexo, String email, String ciudad, String ubicacion, String horarDisponib, String descripPorfesional, String disciplinas, String precioHora, String valoraciones, String descripValoraciones) {
+    public Instructor(String id, String foto, String nombre, String apellidos, int telefono, String sexo, String email, String ciudad, String ubicacion, String horarDisponib, String descripProfesional, String disciplinas, String precioHora, String valoraciones, String descripValoraciones) {
         super(id, foto, nombre, apellidos, telefono, sexo, email, ciudad, ubicacion);
         this.horarDisponib = horarDisponib;
-        this.descripPorfesional = descripPorfesional;
+        this.descripProfesional = descripProfesional;
         this.disciplinas = disciplinas;
         this.precioHora = precioHora;
         this.valoraciones = valoraciones;
@@ -26,9 +26,9 @@ public class Instructor extends Usuario{
 
     public void setHorarDisponib(String horarDisponib) {this.horarDisponib = horarDisponib;}
 
-    public String getDescripPorfesional() {return descripPorfesional;}
+    public String getDescripProfesional() {return descripProfesional;}
 
-    public void setDescripPorfesional(String descripPorfesional) { this.descripPorfesional = descripPorfesional;}
+    public void setDescripProfesional(String descripProfesional) { this.descripProfesional = descripProfesional;}
 
     public String getDisciplinas() {return disciplinas;}
 
@@ -50,7 +50,7 @@ public class Instructor extends Usuario{
     public String toString() {
         return "Instructores{" +
                 "horarDisponib='" + horarDisponib + '\'' +
-                ", descripPorfesional='" + descripPorfesional + '\'' +
+                ", descripProfesional='" + descripProfesional + '\'' +
                 ", disciplinas='" + disciplinas + '\'' +
                 ", precioHora='" + precioHora + '\'' +
                 ", valoraciones='" + valoraciones + '\'' +

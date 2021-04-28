@@ -16,7 +16,7 @@
         android:layout_gravity="bottom"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="-30dp"
-        android:text="Fitness training"
+        android:text="GyM TOGETHER"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FCFDFD"
         android:textStyle="bold" />

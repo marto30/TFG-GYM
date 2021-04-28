@@ -17,6 +17,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.tema7.tema7ejemplo2.Fragments.AlertsFragment;
 import com.tema7.tema7ejemplo2.Fragments.AyudaFragment;
 import com.tema7.tema7ejemplo2.Fragments.CerrarSesionFragment;
@@ -158,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
     private void changeFragment(Fragment fragment, MenuItem item) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content, fragment)
+                .replace(R.id.content_frame, fragment)
                 .commit();
         item.setChecked(true);
         getSupportActionBar().setTitle(item.getTitle());

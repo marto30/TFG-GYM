@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_marginLeft="120dp"
             android:layout_marginEnd="110dp"
             android:layout_marginRight="110dp"
-            android:layout_marginBottom="600dp" />
+            android:layout_marginBottom="500dp" />
 
         <Button
             android:id="@+id/buttonSubir"
@@ -30,8 +30,8 @@
             android:layout_marginLeft="40dp"
             android:layout_marginEnd="250dp"
             android:layout_marginRight="250dp"
-            android:layout_marginBottom="520dp"
-            android:background="@color/md_black_1000"
+            android:layout_marginBottom="420dp"
+            android:background="@color/black"
             android:text="Subir"
             android:textColor="@color/white" />
 
@@ -46,8 +46,8 @@
             android:layout_marginLeft="230dp"
             android:layout_marginEnd="90dp"
             android:layout_marginRight="90dp"
-            android:layout_marginBottom="520dp"
-            android:background="@color/md_black_1000"
+            android:layout_marginBottom="420dp"
+            android:background="@color/black"
             android:text="Editar"
             android:textColor="@color/white" />
 
@@ -62,7 +62,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="200dp"
             android:layout_marginRight="200dp"
-            android:layout_marginBottom="440dp"
+            android:layout_marginBottom="340dp"
             android:text="Nombre:" />
 
         <EditText
@@ -75,7 +75,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="120dp"
-            android:layout_marginBottom="440dp"></EditText>
+            android:layout_marginBottom="340dp"></EditText>
 
         <TextView
             android:id="@+id/TextApellidos"
@@ -88,7 +88,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="200dp"
             android:layout_marginRight="200dp"
-            android:layout_marginBottom="400dp"
+            android:layout_marginBottom="300dp"
             android:text="Apellidos:" />
 
         <EditText
@@ -101,7 +101,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="120dp"
-            android:layout_marginBottom="400dp"></EditText>
+            android:layout_marginBottom="300dp"></EditText>
         <TextView
             android:id="@+id/TextCorreo"
             android:layout_width="180dp"
@@ -113,7 +113,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="200dp"
             android:layout_marginRight="200dp"
-            android:layout_marginBottom="360dp"
+            android:layout_marginBottom="260dp"
             android:text="Correo:" />
         <EditText
             android:id="@+id/TextCorreoedit"
@@ -126,7 +126,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="120dp"
             android:layout_marginRight="120dp"
-            android:layout_marginBottom="360dp"
+            android:layout_marginBottom="260dp"
             ></EditText>
         <TextView
             android:id="@+id/TextTelefono"
@@ -139,7 +139,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="200dp"
             android:layout_marginRight="200dp"
-            android:layout_marginBottom="320dp"
+            android:layout_marginBottom="220dp"
             android:text="Telefono:" />
         <EditText
             android:id="@+id/TextTelefonoedit"
@@ -152,7 +152,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="120dp"
             android:layout_marginRight="120dp"
-            android:layout_marginBottom="320dp"></EditText>
+            android:layout_marginBottom="220dp"></EditText>
         <TextView
             android:id="@+id/TextUbicacion"
             android:layout_width="180dp"
@@ -164,7 +164,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="200dp"
             android:layout_marginRight="280dp"
-            android:layout_marginBottom="280dp"
+            android:layout_marginBottom="180dp"
             android:text="Ubicacion:" />
         <EditText
             android:id="@+id/TextUbicacionedit"
@@ -177,7 +177,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="120dp"
             android:layout_marginRight="120dp"
-            android:layout_marginBottom="280dp"></EditText>
+            android:layout_marginBottom="180dp"></EditText>
         <TextView
             android:id="@+id/TextSexo"
             android:layout_width="180dp"
@@ -189,7 +189,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="200dp"
             android:layout_marginRight="200dp"
-            android:layout_marginBottom="240dp"
+            android:layout_marginBottom="140dp"
             android:text="Sexo:" />
         <EditText
             android:id="@+id/TextSexosedit"
@@ -202,7 +202,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="120dp"
             android:layout_marginRight="120dp"
-            android:layout_marginBottom="240dp"></EditText>
+            android:layout_marginBottom="140dp"></EditText>
         <TextView
             android:id="@+id/TextObjetivos"
             android:layout_width="180dp"
@@ -214,7 +214,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="200dp"
             android:layout_marginRight="200dp"
-            android:layout_marginBottom="200dp"
+            android:layout_marginBottom="100dp"
             android:text="Objetivos:" />
         <EditText
             android:id="@+id/TextObjetivosedit"
@@ -227,7 +227,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="120dp"
             android:layout_marginRight="120dp"
-            android:layout_marginBottom="200dp"></EditText>
+            android:layout_marginBottom="100dp"></EditText>
         <TextView
             android:id="@+id/TextDescripcion"
             android:layout_width="180dp"
@@ -239,7 +239,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="200dp"
             android:layout_marginRight="200dp"
-            android:layout_marginBottom="160dp"
+            android:layout_marginBottom="60dp"
             android:text="Descripción:" />
         <EditText
             android:id="@+id/TextDescripcionedit"
@@ -252,7 +252,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="120dp"
             android:layout_marginRight="120dp"
-            android:layout_marginBottom="160dp"></EditText>
+            android:layout_marginBottom="60dp"></EditText>
 
 
-    </ScrollView>
+    </FrameLayout>
