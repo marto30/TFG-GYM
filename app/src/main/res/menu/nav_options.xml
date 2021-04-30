@@ -4,6 +4,10 @@
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/menu_IniciarSesion"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="Iniciar Sesion"/>
+        <item
             android:id="@+id/menu_mail"
             android:icon="@android:drawable/ic_dialog_email"
             android:title="Email"/>

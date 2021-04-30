@@ -35,6 +35,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:22.1.2'
     implementation 'com.google.firebase:firebase-database:19.7.0'
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth:20.0.4'
+    implementation 'androidx.wear:wear:1.0.0'
     testImplementation 'junit:junit:4.+'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
@@ -50,12 +52,13 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.2.1'
 
-
+    implementation 'com.basgeekball:awesome-validation:4.2'// dependencia de validación de usuario
 
     //Agregados
     implementation 'de.hdodenhof:circleimageview:3.1.0' //Imagen Circular
     //compile 'com.github.bumptech.glide:glide:3.7.0' //Recortar Imagen, Descargar Imagen
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    compileOnly 'com.google.android.wearable:wearable:2.6.0'
     //implementation ("com.github.bumptech.glide:glide:4.11.0") {
       //  exclude group: "com.android.support"
     //}

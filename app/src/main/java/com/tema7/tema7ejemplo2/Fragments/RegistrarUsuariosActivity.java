@@ -2,32 +2,26 @@ package com.tema7.tema7ejemplo2.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import android.util.Patterns;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.tema7.tema7ejemplo2.R;
 
-import java.util.regex.Pattern;
-
-public class RegistrarUsuarioFragment extends AppCompatActivity {
+public class RegistrarUsuariosActivity extends AppCompatActivity {
     EditText usuMail, usuPass;
     Button btn_registrar;
 
@@ -37,7 +31,7 @@ public class RegistrarUsuarioFragment extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_registrar_usuario);
+        setContentView(R.layout.activity_registrar_usuarios);
 
         firebaseAuth = FirebaseAuth.getInstance();
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
@@ -51,7 +45,7 @@ public class RegistrarUsuarioFragment extends AppCompatActivity {
         btn_registrar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-               String mail= usuMail.getText().toString();
+                String mail= usuMail.getText().toString();
                 String pass= usuPass.getText().toString();
 
                 if (awesomeValidation.validate()){
@@ -59,7 +53,7 @@ public class RegistrarUsuarioFragment extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
-                                Toast.makeText(RegistrarUsuarioFragment.this,"Enhorabuena, usuario creado con exito", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistrarUsuariosActivity.this,"Enhorabuena, usuario creado con exito", Toast.LENGTH_SHORT).show();
                                 finish();
                             }else{
                                 String errorCode= ((FirebaseAuthException) task.getException()).getErrorCode();
@@ -68,7 +62,7 @@ public class RegistrarUsuarioFragment extends AppCompatActivity {
                         }
                     });
                 }else{
-                    Toast.makeText(RegistrarUsuarioFragment.this,"Completa todos los datos!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrarUsuariosActivity.this,"Completa todos los datos!!", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -77,7 +71,7 @@ public class RegistrarUsuarioFragment extends AppCompatActivity {
         });
     }
 
-   private void dameToastdeerror(String error){
+    private void dameToastdeerror(String error){
 
-   }
+    }
 }
