@@ -24,7 +24,7 @@ public class RegistrarUsuariosActivity extends AppCompatActivity {
     EditText usuMail, usuPass;
     Button btn_registrar;
 
-    //aRCHIVOA ddbb
+    //DDBB
     FirebaseAuth firebaseAuth;
     AwesomeValidation awesomeValidation;
 
