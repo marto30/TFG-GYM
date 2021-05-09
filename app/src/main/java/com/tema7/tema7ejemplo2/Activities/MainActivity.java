@@ -6,24 +6,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.tema7.tema7ejemplo2.Fragments.AlertsFragment;
 import com.tema7.tema7ejemplo2.Fragments.AyudaFragment;
 import com.tema7.tema7ejemplo2.Fragments.CerrarSesionFragment;
@@ -33,21 +26,12 @@ import com.tema7.tema7ejemplo2.Fragments.EmailFragment;
 import com.tema7.tema7ejemplo2.Fragments.EntrenamientoClienteFragment;
 import com.tema7.tema7ejemplo2.Fragments.FavoritoFragment;
 import com.tema7.tema7ejemplo2.Fragments.InfoFragment;
-import com.tema7.tema7ejemplo2.Fragments.IniciarSesionFragment;
 import com.tema7.tema7ejemplo2.Fragments.InvitarAmigosFragment;
 import com.tema7.tema7ejemplo2.Fragments.PerfilClienteFragment;
-import com.tema7.tema7ejemplo2.Fragments.RecuperarPasswordFragment;
-import com.tema7.tema7ejemplo2.Fragments.RegistrarUsuarioFragment;
-import com.tema7.tema7ejemplo2.Fragments.RegistrarUsuariosActivity;
 import com.tema7.tema7ejemplo2.Fragments.TrabajaConNosotrosFragment;
 import com.tema7.tema7ejemplo2.R;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn_login, btn_registrar, btn_recuperar;
-    EditText usuMail, usuPass;
-
-    FirebaseAuth firebaseAuth;
-    AwesomeValidation awesomeValidation;
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -59,46 +43,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-
-        usuMail = findViewById(R.id.usuMail);
-        usuPass = findViewById(R.id.usuPass);
-
-        btn_login = findViewById(R.id.btn_login);
-        btn_registrar = findViewById(R.id.btn_registrar);
-        btn_recuperar = findViewById(R.id.btn_recuperar);
-
-        btn_registrar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, RegistrarUsuariosActivity.class);
-                StartActivity(i);
-            }
-
-            private void StartActivity(Intent i) {
-            }
-        });
-        btn_login.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn_recuperar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        //setToolbar();
+        setToolbar();
         btnAlerta= (FloatingActionButton) findViewById(R.id.botonAlerts);
-        //drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //navigationView = (NavigationView) findViewById(R.id.navview);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.navview);
         switch_nav = (Switch) navigationView.getMenu().findItem(R.id.app_bar_switch).getActionView();
-        //setFragmentByDefault();
+        setFragmentByDefault();
 
         //Despliegue de menu lateral
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
@@ -130,12 +80,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 boolean fragmentTransaction = false;
                 Fragment fragment = null;
-                IniciarSesionFragment inicio= new IniciarSesionFragment();
+                Activity activity = null;
+                //IniciarSesionFragment inicio= new IniciarSesionFragment();
 
                 switch (item.getItemId()) {
 
                     /*case R.id.menu_IniciarSesion:
-                        fragment = (Fragment) inicio;
+                        activity = IniciarSesionActivity();
                         fragmentTransaction = true;
                         break;*/
                     case R.id.menu_mail:
@@ -203,12 +154,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*private void setToolbar() {
+    private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }*/
+    }
 
     private void changeFragment(Fragment fragment, MenuItem item) {
         getSupportFragmentManager()
@@ -218,9 +169,9 @@ public class MainActivity extends AppCompatActivity {
         item.setChecked(true);
         getSupportActionBar().setTitle(item.getTitle());
     }
-    /*private void setFragmentByDefault() {
+    private void setFragmentByDefault() {
         changeFragment(new EmailFragment(), navigationView.getMenu().getItem(0));
-    }*/
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/box_inset_layout_padding"
-    tools:context=".Activities.RegistrarUsuariosActivity">
+    tools:context=".Activities.RegistrarAdminActivity"
+    tools:deviceIds="wear">
+
 
     <TextView
-        android:id="@+id/TextUsuRegistrar"
+        android:id="@+id/TextAdminRegistrar"
         android:layout_width="match_parent"
         android:layout_height="37dp"
         android:textAlignment="center"
@@ -21,46 +23,46 @@
         android:layout_height="700dp"
         android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/textUsuNombre"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="150dp"
-        android:hint="Ingrese tu nombre*"
-        android:textAlignment="center"></EditText>
+        <EditText
+            android:id="@+id/textAdminNombre"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="150dp"
+            android:hint="Ingrese tu nombre*"
+            android:textAlignment="center"></EditText>
 
-    <EditText
-        android:id="@+id/textUsuApellido"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/textUsuNombre"
-        android:hint="Ingrese tu apellido(s)*"
-        android:textAlignment="center"></EditText>
+        <EditText
+            android:id="@+id/textAdminApellido"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textUsuNombre"
+            android:hint="Ingrese tu apellido(s)*"
+            android:textAlignment="center"></EditText>
 
 
-    <EditText
-        android:id="@+id/textUsuCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/textUsuApellido"
-        android:hint="Ingrese tu correo electronico*"
-        android:textAlignment="center"></EditText>
+        <EditText
+            android:id="@+id/textAdminCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textUsuApellido"
+            android:hint="Ingrese tu correo electronico*"
+            android:textAlignment="center"></EditText>
 
-    <EditText
-        android:id="@+id/textUsuPassword"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/textUsuCorreo"
-        android:hint="Ingresa una contraseña*"
-        android:textAlignment="center"></EditText>
+        <EditText
+            android:id="@+id/textAdminPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textUsuCorreo"
+            android:hint="Ingresa una contraseña*"
+            android:textAlignment="center"></EditText>
 
-    <EditText
-        android:id="@+id/textUsuTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/textUsuPassword"
-        android:hint="Ingresa telefono*"
-        android:textAlignment="center"></EditText>
+        <EditText
+            android:id="@+id/textAdminTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textUsuPassword"
+            android:hint="Ingresa telefono*"
+            android:textAlignment="center"></EditText>
 
         <TextView
             android:id="@+id/TextTituloCiudad"
@@ -72,12 +74,12 @@
             android:autoSizeTextType="uniform"
             android:text="Elige tu ciudad"/>
         <Spinner
-            android:id="@+id/spinnerUsuCiudad"
+            android:id="@+id/spinnerAdminCiudad"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
         <Button
-            android:id="@+id/btnUsuRegistrar"
+            android:id="@+id/btnAdminRegistrar"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
@@ -87,7 +89,7 @@
             android:text="Registrarme"
             android:textColor="@color/white" />
         <Button
-            android:id="@+id/btnUsuLogin"
+            android:id="@+id/btnAdminLogin"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
