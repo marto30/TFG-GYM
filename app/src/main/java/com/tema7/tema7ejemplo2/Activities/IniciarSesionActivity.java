@@ -74,7 +74,4 @@ public class IniciarSesionActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void saveOnPreferences(String trim, String trim1) {
-    }
 }
