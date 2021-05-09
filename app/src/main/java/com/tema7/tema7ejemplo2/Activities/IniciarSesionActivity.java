@@ -43,7 +43,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
                     DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference();
 
-                    //Ruta donde buscaremos la información asociada al usuario
+                    //Comando para buscar los  en la DDBB los datos solicitados
                     mDataBase.child("Usuarios").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -73,5 +73,8 @@ public class IniciarSesionActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void saveOnPreferences(String trim, String trim1) {
     }
 }

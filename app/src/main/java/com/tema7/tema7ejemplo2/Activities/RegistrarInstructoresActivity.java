@@ -110,7 +110,7 @@ public class RegistrarInstructoresActivity extends AppCompatActivity {
 
                     String id = mAuth.getCurrentUser().getUid();
 
-                    mDatabase.child("Instructores").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()){
