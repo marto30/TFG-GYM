@@ -1,19 +1,29 @@
 package com.tema7.tema7ejemplo2.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+<<<<<<< Updated upstream
 import android.app.Activity;
+=======
+import android.content.Intent;
+import android.net.Uri;
+>>>>>>> Stashed changes
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -28,6 +38,8 @@ import com.tema7.tema7ejemplo2.Fragments.FavoritoFragment;
 import com.tema7.tema7ejemplo2.Fragments.InfoFragment;
 import com.tema7.tema7ejemplo2.Fragments.InvitarAmigosFragment;
 import com.tema7.tema7ejemplo2.Fragments.PerfilClienteFragment;
+import com.tema7.tema7ejemplo2.Fragments.PerfilClienteFragment_editar;
+import com.tema7.tema7ejemplo2.Fragments.PerfilInstructorFragment;
 import com.tema7.tema7ejemplo2.Fragments.TrabajaConNosotrosFragment;
 import com.tema7.tema7ejemplo2.R;
 
@@ -37,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private Switch switch_nav;
     private FloatingActionButton btnAlerta;
-
+    private FloatingActionButton fabeditar;
+    ImageView imagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
         switch_nav = (Switch) navigationView.getMenu().findItem(R.id.app_bar_switch).getActionView();
         setFragmentByDefault();
 
+<<<<<<< Updated upstream
         //Despliegue de menu lateral
+=======
+
+>>>>>>> Stashed changes
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -184,6 +201,12 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void clickar_ins(View view) {
+        cargarImagen();
+    }
+
+
     class OyenteSwitch implements CompoundButton.OnCheckedChangeListener{
 
         @Override
@@ -193,6 +216,36 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 Toast.makeText(MainActivity.this, "El switch del menu esta DESACTIVADO", Toast.LENGTH_LONG).show();
             }
+        }
+    }
+
+    public void setDayNight(int mode){
+        if(mode==0){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+
+
+    public void clickar(View view) {
+        cargarImagen();
+    }
+
+    private void cargarImagen() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/");
+        startActivityForResult(Intent.createChooser(intent,"Seleccione la Aplicacion"),10);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            Uri path=data.getData();
+            imagen.setImageURI(path);
         }
     }
 }

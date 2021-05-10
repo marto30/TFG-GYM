@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Switch;
 
+import com.tema7.tema7ejemplo2.Activities.MainActivity;
 import com.tema7.tema7ejemplo2.R;
 
 /**
@@ -55,12 +57,30 @@ public class ConfiguracionFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_configuracion, container, false);
+        View root = inflater.inflate(R.layout.fragment_configuracion, container, false);
+        final Switch swit = root.findViewById(R.id.buttonModoOscuro);
+
+        swit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(swit.isChecked()){
+                    ((MainActivity)getActivity()).setDayNight(0);
+                }else{
+                    ((MainActivity)getActivity()).setDayNight(1);
+                }
+            }
+        });
+
+        return root;
+
     }
+
+
 }

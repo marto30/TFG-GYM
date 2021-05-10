@@ -1,5 +1,6 @@
 package com.tema7.tema7ejemplo2.Fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tema7.tema7ejemplo2.R;
 
 /**
@@ -25,6 +27,8 @@ public class PerfilInstructorFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private FloatingActionButton edit;
+
 
     public PerfilInstructorFragment() {
         // Required empty public constructor
@@ -60,7 +64,18 @@ public class PerfilInstructorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_perfil_instructor, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil_instructor, container, false);
+        edit=root.findViewById(R.id.fabEditint);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onClick(View view) {
+                Fragment fragment=new PerfilInstructorFragment_editar();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
+            }
+        });
+
+        return root;
     }
 }
