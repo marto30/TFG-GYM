@@ -23,7 +23,7 @@
             android:text="Iniciar Sesión"/>
 
         <EditText
-            android:id="@+id/textEmail"
+            android:id="@+id/textIniciarEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
@@ -32,15 +32,15 @@
             android:textAlignment="center"></EditText>
 
         <EditText
-            android:id="@+id/textPassword"
+            android:id="@+id/textIniciarPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@id/textUsuCorreo"
+            android:layout_below="@id/textIniciarEmail"
             android:hint="Ingresa tu contraseña*"
             android:textAlignment="center"></EditText>
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnIniciarLogin"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
@@ -51,7 +51,7 @@
             android:textColor="@color/white"/>
 
         <Button
-            android:id="@+id/btnRegistrar"
+            android:id="@+id/btnIniciarRegistrar"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
@@ -62,7 +62,7 @@
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/btnRecuperar"
+            android:id="@+id/btnIniciarRecuperar"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"

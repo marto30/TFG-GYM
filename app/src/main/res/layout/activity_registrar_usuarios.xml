@@ -39,7 +39,7 @@
 
 
     <EditText
-        android:id="@+id/textUsuCorreo"
+        android:id="@+id/textUsuEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/textUsuApellido"
@@ -50,7 +50,7 @@
         android:id="@+id/textUsuPassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/textUsuCorreo"
+        android:layout_below="@id/textUsuApellido"
         android:hint="Ingresa una contraseña*"
         android:textAlignment="center"></EditText>
 
