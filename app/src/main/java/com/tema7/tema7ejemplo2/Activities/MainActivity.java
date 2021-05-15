@@ -8,17 +8,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-<<<<<<< Updated upstream
+
 import android.app.Activity;
-=======
 import android.content.Intent;
 import android.net.Uri;
->>>>>>> Stashed changes
+
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton btnAlerta;
     private FloatingActionButton fabeditar;
     ImageView imagen;
+    EditText correo,nombre_correo,sobreti;
+    private FloatingActionButton botonenviarEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +65,25 @@ public class MainActivity extends AppCompatActivity {
         switch_nav = (Switch) navigationView.getMenu().findItem(R.id.app_bar_switch).getActionView();
         setFragmentByDefault();
 
-<<<<<<< Updated upstream
-        //Despliegue de menu lateral
-=======
+        correo = findViewById(R.id.para);
+        nombre_correo = findViewById(R.id.nombre_correo);
+        sobreti = findViewById(R.id.sobreti);
+        botonenviarEmail = findViewById(R.id.botonEmail);
 
->>>>>>> Stashed changes
+        botonenviarEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + correo.getText().toString()));
+                intent.putExtra(Intent.EXTRA_SUBJECT, nombre_correo.getText().toString());
+                intent.putExtra(Intent.EXTRA_TEXT, "Estamos mirando su solicitud, ¡gracias!");
+                startActivity(intent);
+            }
+        });
+
+
+
+        //Despliegue de menu lateral
+
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {

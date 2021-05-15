@@ -18,7 +18,6 @@ import com.tema7.tema7ejemplo2.R;
 
 public class RecuperarPasswordFragment extends Fragment {
 
-<<<<<<< Updated upstream:app/src/main/java/com/tema7/tema7ejemplo2/Fragments/RecuperarPasswordFragment.java
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -38,7 +37,7 @@ public class RecuperarPasswordFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-=======
+/*
 public class IniciarSesionFragment extends AppCompatActivity {
 
     Button btn_login, btn_registrar, btn_recuperar;
@@ -46,7 +45,6 @@ public class IniciarSesionFragment extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     AwesomeValidation awesomeValidation;
->>>>>>> Stashed changes:app/src/main/java/com/tema7/tema7ejemplo2/Fragments/IniciarSesionFragment.java
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,7 +87,7 @@ public class IniciarSesionFragment extends AppCompatActivity {
 
     }//Fin de OnCreate
 
-   /* @Override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -101,6 +99,5 @@ public class IniciarSesionFragment extends AppCompatActivity {
 
     private void mensajeError(String error){
 
->>>>>>> Stashed changes:app/src/main/java/com/tema7/tema7ejemplo2/Fragments/IniciarSesionFragment.java
     }
 }

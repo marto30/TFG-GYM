@@ -7,7 +7,7 @@
 
 
 
-        <Button
+        <Switch
             android:id="@+id/buttonNotificaciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginEnd="250dp"
             android:layout_marginRight="250dp"
-            android:layout_marginBottom="440dp"
+            android:layout_marginBottom="450dp"
             android:text="Notificaciones"
             android:src="?attr/iconPlaceholder"
             android:textColor="@color/black" />
@@ -36,22 +36,6 @@
             android:layout_marginRight="250dp"
             android:layout_marginBottom="390dp"
             android:text="Darse de baja"
-            android:src="?attr/iconPlaceholder"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/buttonPrivacidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginEnd="250dp"
-            android:layout_marginRight="250dp"
-            android:layout_marginBottom="340dp"
-            android:text="Privacidad"
             android:src="?attr/iconPlaceholder"
             android:textColor="@color/black" />
 

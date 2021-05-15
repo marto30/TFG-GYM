@@ -37,8 +37,8 @@ public class IniciarSesionActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    saveOnPreferences(textEmail.getText().toString().trim(), textPassword.getText().toString().trim());
+                if (task.isSuccessful()){
+                 //  saveOnPreferencets(textEmail.getText().toString().trim(), textPassword.getText().toString().trim());
                     mAuth = FirebaseAuth.getInstance();
                     FirebaseUser user = mAuth.getCurrentUser();
                     DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference();
@@ -47,17 +47,17 @@ public class IniciarSesionActivity extends AppCompatActivity {
                     mDataBase.child("Usuarios").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.exists()) {
+                          if (dataSnapshot.exists()) {
                                 String tipo = dataSnapshot.child("tipo").getValue().toString();
                                 if (tipo.equalsIgnoreCase("usuario")) {
-                                    Intent intent = new Intent(getApplicationContext(), HomeUser.class);
-                                    startActivity(intent);
+                                   //* Intent intent = new Intent(getApplicationContext(), HomeUser.class);
+                                   //* startActivity(intent);
                                 } else if (tipo.equalsIgnoreCase("instructor")) {
-                                    Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
-                                    startActivity(intent);
+                                 //*   Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
+                               //*     startActivity(intent);
                                 } else if (tipo.equalsIgnoreCase("administrador")) {
-                                    Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
-                                    startActivity(intent);
+                              //*      Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
+                               //*     startActivity(intent);
                                 }
                             }
 
@@ -68,7 +68,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
 
                         }
                     });
-                } else {
+                }else {
                     Toast.makeText(getApplicationContext(), "Error al autenticar datos, compruebe sus datos", Toast.LENGTH_SHORT).show();
                 }
             }
