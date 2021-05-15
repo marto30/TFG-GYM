@@ -70,11 +70,13 @@ public class RegistrarUsuarioFragment extends AppCompatActivity {
                 }else{
                     Toast.makeText(RegistrarUsuarioFragment.this,"Completa todos los datos!!", Toast.LENGTH_SHORT).show();
                 }
+
             }
 
             private void StartActivity(Intent i) {
             }
         });
+
     }
 
    private void dameToastdeerror(String error){

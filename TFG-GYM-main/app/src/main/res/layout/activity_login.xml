@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".Activities.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ImagenLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_splash"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"/>
+
+
+
+        <RelativeLayout
+            android:id="@+id/gallery1"
+            android:layout_below="@id/ImagenLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Iniciar sesión"
+                android:textColor="@color/gris"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_below="@id/tv_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linelay1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:inputType="textEmailAddress"
+                        android:text="Correo electrónico"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gris"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/mail"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/gris"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="text"
+                        android:maxLines="1"
+                  />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:inputType="text"
+                        android:text="Contraseña"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gris"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/gris"
+                        android:fontFamily="sans-serif-light"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <Switch
+                        android:id="@+id/remember_me_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Recordar contraseña"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gris"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linelay1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="Iniciar sesión"
+                android:textAllCaps="true"
+                android:textColor="@color/gris"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/gallery2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnsignup"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimary"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Sign Up"
+            android:textAllCaps="true"
+            android:textColor="@color/white" />
+
+
+        <Button
+            android:id="@+id/btnreset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Recuperar contraseña"
+            android:textAllCaps="true"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

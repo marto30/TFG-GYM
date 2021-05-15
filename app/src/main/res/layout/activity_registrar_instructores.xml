@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".Activities.RegistrarInstructoresActivity"
+    tools:deviceIds="wear">
+
+    <TextView
+        android:id="@+id/TextInstRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:textAlignment="center"
+        android:layout_marginTop="70dp"
+        android:autoSizeTextType="uniform"
+        android:text="REGISTRATE"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/textInstNombre"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="150dp"
+            android:hint="Ingrese tu nombre*"
+            android:textAlignment="center"></EditText>
+
+        <EditText
+            android:id="@+id/textInstApellido"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Ingrese tu apellido(s)*"
+            android:textAlignment="center"></EditText>
+
+
+        <EditText
+            android:id="@+id/textInstCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Ingrese tu correo electronico*"
+            android:textAlignment="center"></EditText>
+
+        <EditText
+            android:id="@+id/textInstPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Ingresa una contraseña*"
+            android:textAlignment="center"></EditText>
+
+        <EditText
+            android:id="@+id/textInstTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Ingresa telefono*"
+            android:textAlignment="center"></EditText>
+
+        <TextView
+            android:id="@+id/TextTituloCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textAlignment="center"
+            android:layout_marginTop="0dp"
+            android:autoSizeTextType="uniform"
+            android:text="Elige tu ciudad"/>
+        <Spinner
+            android:id="@+id/spinnerInstCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/btnInstRegistrar"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Registrarme"
+            android:textColor="@color/white" />
+        <Button
+            android:id="@+id/btnInstLogin"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Ya estoy reistrado"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</androidx.wear.widget.BoxInsetLayout>
