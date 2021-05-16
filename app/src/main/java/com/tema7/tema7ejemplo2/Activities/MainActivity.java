@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Switch switch_nav;
     private FloatingActionButton btnAlerta;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

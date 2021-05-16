@@ -39,9 +39,6 @@ public class RegistrarAdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_admin);
 
-        btnLogin=(Button)findViewById(R.id.btnAdminLogin);
-        btnRegistrar=(Button)findViewById(R.id.btnAdminRegistrar);
-
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 

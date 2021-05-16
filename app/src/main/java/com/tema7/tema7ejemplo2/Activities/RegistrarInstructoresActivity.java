@@ -40,9 +40,6 @@ public class RegistrarInstructoresActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_instructores);
 
-        btnLogin=(Button)findViewById(R.id.btnInstLogin);
-        btnRegistrar=(Button)findViewById(R.id.btnInstRegistrar);
-
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -86,13 +83,6 @@ public class RegistrarInstructoresActivity extends AppCompatActivity {
                 }
 
 
-            }
-        });
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RegistrarInstructoresActivity.this, IniciarSesionActivity.class);
-                startActivity(intent);
             }
         });
     }

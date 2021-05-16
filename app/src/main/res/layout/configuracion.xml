@@ -38,7 +38,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/buttonNotificaciones"
+        android:id="@+id/buttonOscuro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -70,7 +70,7 @@
         android:textColor="@color/black" />
 
     <Button
-        android:id="@+id/buttonPrivacidad"
+        android:id="@+id/buttonClaro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
