@@ -1,26 +1,44 @@
 package com.tema7.tema7ejemplo2.Fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.tema7.tema7ejemplo2.Model.Usuario;
 import com.tema7.tema7ejemplo2.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PerfilClienteFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class PerfilClienteFragment extends Fragment {
+import java.util.List;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class PerfilClienteFragment extends AppCompatActivity {
+
+    private TextView cerrar;
+    private TextView guardar;
+    private TextView ajustesPerfil;
+    private TextView cambiarImagen;
+    private TextView  añadir;
+    private EditText nombre;
+    private EditText apellidos;  
+    private EditText email;
+    private EditText telefono;
+    private Spinner ciudad;
+    private FirebaseAuth mAuth;
+    private List<Usuario> usuarios;
+    private DatabaseReference mDataBase;
+    DatabaseReference databaseReference;
+    private Uri uri;
+
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
