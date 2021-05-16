@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerOpened(View drawerView) {
-               // Toast.makeText(MainActivity.this, "Menu lateral abierta", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(MainActivity.this, "Menu lateral abierta", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
-               // Toast.makeText(MainActivity.this, "Menu lateral cerrada", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(MainActivity.this, "Menu lateral cerrada", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    switch_nav.setOnCheckedChangeListener(new OyenteSwitch());
+        switch_nav.setOnCheckedChangeListener(new OyenteSwitch());
 
     }
 

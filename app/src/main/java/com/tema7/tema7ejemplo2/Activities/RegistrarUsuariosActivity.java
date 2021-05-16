@@ -30,59 +30,113 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegistrarUsuariosActivity extends AppCompatActivity {
-
-    EditText textUsuNombre, textUsuApellidos, textUsuEmail, textUsuPassword, textUsuTelefono;
-    Button btnUsuRegistrar;
-
-    FirebaseAuth firebaseAuth;
-    AwesomeValidation awesomeValidation;
+    private EditText textNombre, textApellidos, textEmail, textPassword,  textTelefono;
+    private Button btnRegistrar, btnLogin;
+    private Spinner spinnerCiudad;
+    private String nombre, apellidos, email, password,  telefono, ciudad;
+    private ProgressDialog cargando;
+    FirebaseAuth mAuth;
+    DatabaseReference mDatabase;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_usuarios);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-        //awesomeValidation.addValidation(this,R.id.textUsuNombre);
-        awesomeValidation.addValidation(this, R.id.textUsuEmail, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
-        awesomeValidation.addValidation(this, R.id.textUsuPassword, ".{6,}", R.string.invalid_password);
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        cargando = new ProgressDialog(this);
+
+        btnLogin = (Button) findViewById(R.id.btnUsuLogin);
+        btnRegistrar = (Button) findViewById(R.id.btnUsuRegistrar);
+        textNombre = (EditText) findViewById(R.id.textUsuNombre);
+        textApellidos = (EditText) findViewById(R.id.textUsuApellido);
+        textEmail = (EditText) findViewById(R.id.textUsuEmail);
+        textPassword = (EditText) findViewById(R.id.textUsuPassword);
+        textTelefono = (EditText) findViewById(R.id.textUsuTelefono);
+        spinnerCiudad = (Spinner) findViewById(R.id.spinnerUsuCiudad);
+        cargarSpinner();
 
 
-        textUsuEmail = findViewById(R.id.textUsuEmail);
-        textUsuPassword = findViewById(R.id.textUsuPassword);
-        btnUsuRegistrar = findViewById(R.id.btnUsuRegistrar);
-
-        btnUsuRegistrar.setOnClickListener(new View.OnClickListener() {
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String mail = textUsuEmail.getText().toString();
-                String pass = textUsuPassword.getText().toString();
 
-                if (awesomeValidation.validate()) {
-                    firebaseAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(RegistrarUsuariosActivity.this, "Enhorabuena, usuario creado con exito", Toast.LENGTH_SHORT).show();
-                                finish();
-                            } else {
-                                String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
-                                dameToastdeerror(errorCode);
-                            }
+                nombre = textNombre.getText().toString();
+                apellidos = textApellidos.getText().toString();
+                email = textEmail.getText().toString();
+                password = textPassword.getText().toString();
+                telefono = textTelefono.getText().toString();
+                ciudad = spinnerCiudad.getSelectedItem().toString();
+
+                if (! (nombre.equals("") || apellidos.equals("") || email.equals("") || password.equals("") || ciudad.equals("") || telefono.equals(""))) {
+
+                    if (password.length() > 5) {
+                        if(!(email.contains("@"))) {
+                            Toast.makeText(getApplicationContext(), "El correo electronico debe contener '@'", Toast.LENGTH_SHORT).show();
+                        }else{
+                            crearCuenta();
                         }
-                    });
-                } else {
-                    Toast.makeText(RegistrarUsuariosActivity.this, "Completa todos los datos!!", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getApplicationContext(), "La contraseña debe contener 6 o más caracteres", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Todos los campos son requeridos", Toast.LENGTH_SHORT).show();
                 }
             }
+        });
 
-            private void StartActivity(Intent i) {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegistrarUsuariosActivity.this, IniciarSesionActivity.class);
+                startActivity(intent);
             }
         });
     }
 
-    private void dameToastdeerror(String error) {
+    private void cargarSpinner() {
+        String[] provincias = {"", "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real", "Córdoba", "Cuenca", "Gerona", "Granada", "Guadalajara", "Guipúzkoa", "Huelva", "Huesca", "Islas Baleares", "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lérida", "Madrid", "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca", "Sta Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, provincias);
+        spinnerCiudad.setAdapter(adapter);
 
+    }
+
+    private void crearCuenta(){
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("nombre", nombre);
+                    map.put("apellidos", apellidos);
+                    map.put("email", email);
+                    map.put("password", password);
+                    map.put("telefono", telefono);
+                    map.put("ciudad", ciudad);
+                    map.put("tipo","usuario");
+
+                    String id = mAuth.getCurrentUser().getUid();
+
+                    mDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task2) {
+                            if(task2.isSuccessful()){
+
+                                Intent intent = new Intent(getApplicationContext(), IniciarSesionActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }else{
+                                Toast.makeText(getApplicationContext(), "No se ha podido crear el usuario correctamente", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }else{
+                    Toast.makeText(getApplicationContext(), "Error al crear la cuenta", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

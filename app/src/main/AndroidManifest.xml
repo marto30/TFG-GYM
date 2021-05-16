@@ -3,7 +3,7 @@
     package="com.tema7.tema7ejemplo2">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-feature android:name="android.hardware.type.watch" />
 
     <application
@@ -23,9 +23,18 @@
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
-        -->
+       -->
         <activity
-            android:name=".Activities.RegistrarAdminActivity"
+            android:name=".Activities.RegistrarUsuariosActivity"
+            android:label="@string/title_activity_iniciar_sesion">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.IniciarSesionActivity"
             android:label="@string/title_activity_registrar_admin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,15 +51,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activities.IniciarSesionActivity"
-            android:label="@string/title_activity_iniciar_sesion">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.

@@ -1,10 +1,12 @@
 package com.tema7.tema7ejemplo2.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,64 +26,74 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.tema7.tema7ejemplo2.R;
+import com.tema7.tema7ejemplo2.Validaciones.Validaciones;
 
 public class IniciarSesionActivity extends AppCompatActivity {
 
-    Button btnLogin, btnRegistrar, btnRecuperar;
-    EditText loginEmail, loginPass;
+    private FirebaseAuth mAuth;
 
-    FirebaseAuth firebaseAuth;
-    AwesomeValidation awesomeValidation;
+    private String email, contrasena;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iniciar_sesion);
+    private EditText textEmail, textPassword;
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+    private Switch recordar;
 
-        loginEmail = findViewById(R.id.textIniciarEmail);
-        loginPass = findViewById(R.id.textIniciarPassword);
+    private SharedPreferences prefs;
+    private DatabaseReference mDatabase;
 
-        btnLogin = findViewById(R.id.btnIniciarLogin);
-        btnRegistrar = findViewById(R.id.btnIniciarRegistrar);
-        btnRecuperar = findViewById(R.id.btnIniciarRecuperar);
-
-        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+    private void login() {
+        mAuth.signInWithEmailAndPassword(email, contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View view) {
-                Intent i = new Intent(IniciarSesionActivity.this, RegistrarUsuariosActivity.class);
-                StartActivity(i);
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    saveOnPreferences(textEmail.getText().toString().trim(), textPassword.getText().toString().trim());
+                    mAuth = FirebaseAuth.getInstance();
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference();
+
+                    //Comando para buscar los  en la DDBB los datos solicitados
+                    mDataBase.child("Usuarios").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                String tipo = dataSnapshot.child("tipo").getValue().toString();
+                                if (tipo.equalsIgnoreCase("usuario")) {
+                                    Intent intent = new Intent(getApplicationContext(), RegistrarUsuariosActivity.class);
+                                    startActivity(intent);
+                                } else if (tipo.equalsIgnoreCase("instructor")) {
+                                    Intent intent = new Intent(getApplicationContext(), RegistrarInstructoresActivity.class);
+                                    startActivity(intent);
+                                } else if (tipo.equalsIgnoreCase("administrador")) {
+                                    Intent intent = new Intent(getApplicationContext(), RegistrarAdminActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error al autenticar datos, compruebe sus datos", Toast.LENGTH_SHORT).show();
+                }
             }
 
-            private void StartActivity(Intent i) {
+            //método que guarda el email y contraseña introducidos
+            private void saveOnPreferences(String email, String password) {
+                if (recordar.isChecked()) {
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("email", email);
+                    editor.putString("contrasena", password);
+                    editor.apply();
+
+
+                } else {
+                    Validaciones.removeSharedPreferences(prefs);
+                }
             }
         });
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btnRecuperar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-
-    }//Fin de OnCreate
-
-   /* @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_iniciar_sesion, container, false);
-    }*/
-
-    private void mensajeError(String error) {
-
     }
 }
