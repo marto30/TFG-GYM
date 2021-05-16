@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.TrabajaConNosotrosFragment">
+    tools:context=".Fragments.TrabajaConNosotrosFragment"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:padding="20dp">
 
         <TextView
-            android:id="@+id/TextTitulo"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:textAlignment="center"
-            android:layout_marginTop="140dp"
-            android:text="¿Quieres trabajar con nostros?" />
-
+            android:layout_height="200dp"
+            android:text="Trabaja como entrenador"
+            android:textSize="@android:dimen/app_icon_size" />
         <TextView
-            android:id="@+id/Textinfo"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="180dp"
-            android:textAlignment="center"
-            android:layout_marginLeft="25dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="250dp"
-            android:layout_marginBottom="410dp"
-            android:text="Si desea trabajar con nosotros envie un correo al siguente correo electrinico ayuda@entrenador.es. Indicandonos tu nombre, procedencia y adjuntando su curriculum, de igual manera puede brindarnos su correo electronico para mas información " />
-        <TextView
-            android:id="@+id/textoEmail"
+            android:layout_height="220dp"
+            android:text="Si desea puede trabajar con nosotros como entrenador, para ello simplemente tiene que rellenar el siguiente formulario y se le añadira a la dista de candidaturas, una vez allí se le comunicara si su candidatura es valida. ¡Muchas suerte!"/>
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Tu e-mail"
-            android:textSize="36dp" />
+            android:layout_height="wrap_content"
+            android:hint="Correo"
+            android:id="@+id/et_to" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/botonEmail"
@@ -45,4 +32,6 @@
             android:layout_margin="16dp"
             android:src="@mipmap/ic_launcher_web"
             app:backgroundTint="#F44336" />
-</FrameLayout>
+
+
+</LinearLayout>

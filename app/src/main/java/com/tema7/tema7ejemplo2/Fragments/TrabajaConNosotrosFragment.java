@@ -1,28 +1,44 @@
 package com.tema7.tema7ejemplo2.Fragments;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.text.InputType;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tema7.tema7ejemplo2.R;
 
-public class TrabajaConNosotrosFragment extends Fragment implements View.OnClickListener, DialogInterface.OnClickListener {
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+public class TrabajaConNosotrosFragment extends Fragment {
 
     private FloatingActionButton btnEmail;
     private TextView miEmail;
     private EditText nuevoEmail;
     private AlertDialog.Builder builder;
-
+    EditText etTo;
+    FloatingActionButton btnenviar;
+    String sEmail, sPassword, mensaje, asunto;
+    private FloatingActionButton botonenviarEmail;
     public TrabajaConNosotrosFragment() {
         // Required empty public constructor
     }
@@ -31,37 +47,98 @@ public class TrabajaConNosotrosFragment extends Fragment implements View.OnClick
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_trabaja_con_nosotros, container, false);
-        btnEmail = (FloatingActionButton) view.findViewById(R.id.botonEmail);
-        btnEmail.setOnClickListener(this);
-        miEmail = (TextView)view.findViewById(R.id.textoEmail);
+        etTo = view.findViewById(R.id.et_to);
+        btnenviar = view.findViewById(R.id.botonEmail);
+
+        sEmail="tfggymt@gmail.com";
+        sPassword="tfggymifp12";
+        mensaje = "Su candidatura ha sido enviada, hemos recibido su candidatura para ser entrenador y trabajar con nosotros, le deseamos mucha suerte.\n" +
+                "Un abrazo muy fuerte y mucho training.\n" +
+                "Att: Equipo de GymTogether.";
+        asunto = "Candidatura GymTogether";
+        btnenviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Properties properties = new Properties();
+                properties.put("mail.smtp.auth", "true");
+                properties.put("mail.smtp.starttls.enable", "true");
+                properties.put("mail.smtp.host", "smtp.gmail.com");
+                properties.put("mail.smtp.port", "587");
+
+                Session session = Session.getInstance(properties, new Authenticator() {
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(sEmail,sPassword);
+                    }
+                });
+
+
+                try {
+                    Message message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress(sEmail));
+                    message.setRecipients(Message.RecipientType.TO,
+                            InternetAddress.parse(etTo.getText().toString().trim()));
+                    message.setSubject(asunto.toString().trim());
+                    message.setText(mensaje.toString().trim());
+                    new SendMail().execute(message);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         return view;
     }
 
-    @Override
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if(i==DialogInterface.BUTTON_POSITIVE){
+    private class SendMail extends AsyncTask<Message, String,String> {
 
-            String email = nuevoEmail.getText().toString();
-            if(!email.isEmpty()){
-                miEmail.setText(email);
+        private ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(getActivity(),
+                    "please wait", "Sending Mail...", true, false);
+
+        }
+
+        @Override
+        protected String doInBackground(Message... messages) {
+            try {
+                Transport.send(messages[0]);
+                return "Success";
+            } catch (MessagingException e) {
+                e.printStackTrace();
+                return "Error";
             }
-        }else if(i==DialogInterface.BUTTON_NEGATIVE){
-            dialogInterface.cancel();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            progressDialog.dismiss();
+            if(s.equals("Success")) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setCancelable(false);
+                builder.setTitle(Html.fromHtml("<font color='#509324'>Success</font>"));
+                builder.setMessage("Mail send successfully.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        etTo.setText("");
+                    }
+                });
+                builder.show();
+            }else{
+                Toast.makeText(getActivity(),
+                        "Something went wrong ?", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
     @Override
-    public void onClick(View view) {
-        builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Ingresa tu correo");
-        builder.setMessage("Escribe tu correo para enviarte la información");
-
-        nuevoEmail=new EditText(getContext());
-        nuevoEmail.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        builder.setView(nuevoEmail);
-
-        builder.setPositiveButton("Enviar información", this);
-        builder.setNegativeButton("Cancelar", this);
-        builder.show();
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 }

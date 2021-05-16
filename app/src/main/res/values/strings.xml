@@ -14,5 +14,6 @@
     <string name="title_activity_iniciar_sesion">IniciarSesionActivity</string>
     <string name="title_activity_registrar_instructores">RegistrarInstructoresActivity</string>
     <string name="title_activity_registrar_admin">RegistrarAdminActivity</string>
-    <string name="title_activity_recuperar_password">RecuperarPasswordActivity</string>
+    <string name="titulo_nuevo_entrenamiento">Añadir entrenamiento</string>
+    <string name="titulo_editarentrenamiento">Editar entrenamiento</string>
 </resources>

@@ -5,40 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.ConfiguracionFragment">
 
-        <TextView
-            android:id="@+id/TextConfiguracion"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="115dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
-            android:text="Configuracion"
-            android:textColor="?attr/primaryTextColor"
-            android:layout_marginBottom="620dp" />
 
         <Button
-            android:id="@+id/buttonModoOscuro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginEnd="250dp"
-            android:layout_marginRight="250dp"
-            android:layout_marginBottom="500dp"
-            android:background="@color/black"
-            android:text="Modo oscuro"
-            android:src="?attr/iconPlaceholder"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/buttonNotificaciones"
+            android:id="@+id/buttonOscuro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -49,9 +18,10 @@
             android:layout_marginEnd="250dp"
             android:layout_marginRight="250dp"
             android:layout_marginBottom="440dp"
-            android:text="Notificaciones"
+            android:backgroundTint="#101010"
             android:src="?attr/iconPlaceholder"
-            android:textColor="@color/black" />
+            android:text="Modo Oscuro"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/buttonDarseBaja"
@@ -61,16 +31,16 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginEnd="250dp"
-            android:layout_marginRight="250dp"
+            android:layout_marginLeft="38dp"
+            android:layout_marginEnd="246dp"
+            android:layout_marginRight="246dp"
             android:layout_marginBottom="390dp"
-            android:text="Darse de baja"
             android:src="?attr/iconPlaceholder"
+            android:text="Darse de baja"
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/buttonPrivacidad"
+            android:id="@+id/buttonClaro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -78,10 +48,11 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="40dp"
-            android:layout_marginEnd="250dp"
-            android:layout_marginRight="250dp"
-            android:layout_marginBottom="340dp"
-            android:text="Privacidad"
+            android:layout_marginEnd="257dp"
+            android:layout_marginRight="257dp"
+            android:layout_marginBottom="486dp"
             android:src="?attr/iconPlaceholder"
+            android:text="Modo Claro"
             android:textColor="@color/black" />
+
 </RelativeLayout>

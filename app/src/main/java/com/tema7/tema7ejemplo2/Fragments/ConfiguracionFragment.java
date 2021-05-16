@@ -1,12 +1,14 @@
 package com.tema7.tema7ejemplo2.Fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.fragment.app.Fragment;
 
 import com.tema7.tema7ejemplo2.R;
 
@@ -55,12 +57,45 @@ public class ConfiguracionFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_configuracion, container, false);
+        View root = inflater.inflate(R.layout.fragment_configuracion, container, false);
+        final Button oscuro = root.findViewById(R.id.buttonOscuro);
+        final Button claro = root.findViewById(R.id.buttonClaro);
+
+        claro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setDayNight(1);
+            }
+        });
+        oscuro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setDayNight(0);
+            }
+        });
+
+
+        return root;
+
     }
+
+    public void setDayNight(int mode){
+        if(mode==0){
+            ((AppCompatActivity)getActivity()).getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        else{
+            ((AppCompatActivity)getActivity()).getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+
+
 }

@@ -31,27 +31,24 @@ import java.util.Map;
 
 public class RegistrarUsuariosActivity extends AppCompatActivity {
     private EditText textNombre, textApellidos, textEmail, textPassword,  textTelefono;
-    private Button btnRegistrar, btnIniciarSesion;
+    private Button btnRegistrar, btnLogin;
     private Spinner spinnerCiudad;
     private String nombre, apellidos, email, password,  telefono, ciudad;
     private ProgressDialog cargando;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-
+     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_usuarios);
-
-        btnIniciarSesion=(Button)findViewById(R.id.btnUsuRegistrar);
-        btnRegistrar=(Button)findViewById(R.id.btnUsuRegistrar);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         cargando = new ProgressDialog(this);
 
-        btnIniciarSesion = (Button) findViewById(R.id.btnUsuLogin);
+        btnLogin = (Button) findViewById(R.id.btnUsuLogin);
         btnRegistrar = (Button) findViewById(R.id.btnUsuRegistrar);
         textNombre = (EditText) findViewById(R.id.textUsuNombre);
         textApellidos = (EditText) findViewById(R.id.textUsuApellido);
@@ -84,25 +81,17 @@ public class RegistrarUsuariosActivity extends AppCompatActivity {
                     }else {
                         Toast.makeText(getApplicationContext(), "La contraseña debe contener 6 o más caracteres", Toast.LENGTH_SHORT).show();
                     }
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Todos los campos son requeridos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        /*btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RegistrarUsuariosActivity.this, IniciarSesionActivity.class);
-                startActivity(intent);
-            }
-        });*/
-
-        //Acción que te envia a el inicio de sesión
-        btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), IniciarSesionActivity.class);
                 startActivity(intent);
             }
         });

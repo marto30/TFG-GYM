@@ -1,6 +1,5 @@
 package com.tema7.tema7ejemplo2.Activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,73 +31,18 @@ import com.tema7.tema7ejemplo2.Validaciones.Validaciones;
 public class IniciarSesionActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private String email, password;
+
+    private String email, contrasena;
+
     private EditText textEmail, textPassword;
-    private Button btnIniciarSesion, btnResetPass, btnRegistrar;
 
     private Switch recordar;
 
     private SharedPreferences prefs;
     private DatabaseReference mDatabase;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iniciar_sesion);
-
-        //Para inicializar la instancia de autenticación
-        mAuth = FirebaseAuth.getInstance();
-        //Referenciamos los objetos de la vista
-        textEmail = (EditText) findViewById(R.id.textIniciarEmail);
-        textPassword = (EditText) findViewById(R.id.textIniciarPassword);
-        btnIniciarSesion = (Button) findViewById(R.id.btnIniciarLogin);
-        btnRegistrar = (Button) findViewById(R.id.btnIniciarRegistrar);
-        btnResetPass = (Button) findViewById(R.id.btnIniciarRecuperar);
-        //admin= (TextView)findViewById(R.id.admin) ;
-        //noAdmin= (TextView)findViewById(R.id.noAdmin) ;
-        //recordar = (Switch)findViewById(R.id.remember_me_switch);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
-        //Acciones de cuando se oprime el boton login
-        btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                email = textEmail.getText().toString();
-                password = textPassword.getText().toString();
-                if (!(email.isEmpty() && password.isEmpty())) {
-                    Toast.makeText(getApplicationContext(), "Sesión iniciada correctamente", Toast.LENGTH_SHORT).show();
-                    IniciarSesion();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Es necesario rellenar los campos", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        //Acción de el boton de restablecer contraseña
-        btnResetPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RecuperarPasswordActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        //Acción que te envia el registro de usuarios
-        btnRegistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RegistrarUsuariosActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        //se auto-rellenan el email y contraseña en caso de haberse guardado
-        //prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
-        //setCredentialsIfExist();
-    }
-
-    private void IniciarSesion() {
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    private void login() {
+        mAuth.signInWithEmailAndPassword(email, contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
@@ -136,21 +80,20 @@ public class IniciarSesionActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Error al autenticar datos, compruebe sus datos", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
-    }
-
 
             //método que guarda el email y contraseña introducidos
             private void saveOnPreferences(String email, String password) {
                 if (recordar.isChecked()) {
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("email", email);
-                    editor.putString("password", password);
+                    editor.putString("contrasena", password);
                     editor.apply();
+
 
                 } else {
                     Validaciones.removeSharedPreferences(prefs);
                 }
             }
-
+        });
+    }
 }

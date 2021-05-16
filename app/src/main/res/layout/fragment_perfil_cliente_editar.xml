@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/editarFrag"
     android:layout_height="match_parent"
-    android:id="@+id/savecliente"
-    tools:context=".Fragments.PerfilClienteFragment">
+    tools:context=".Fragments.PerfilClienteFragment_editar">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -16,10 +16,55 @@
                     android:layout_height="match_parent"
                     android:padding="16dp">
 
+
+                        <Button
+                            android:id="@+id/buttonSubir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginEnd="324dp"
+                            android:layout_marginRight="324dp"
+                            android:layout_marginBottom="98dp"
+                            android:background="@color/black"
+                            android:text="Subir"
+                            android:textColor="@color/white"
+                            tools:ignore="OnClick" />
+
                         <ImageView
                             android:id="@+id/FotoPerfil"
                             android:layout_width="match_parent"
                             android:layout_height="120dp" />
+
+                        <TextView
+                            android:id="@+id/TextFoto"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="99dp"
+                            android:layout_marginEnd="132dp"
+                            android:layout_marginRight="132dp"
+                            android:layout_marginBottom="126dp"
+                            android:text="URL imagen:" />
+
+                        <EditText
+                            android:id="@+id/TextFotoSubir"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="195dp"
+                            android:layout_marginEnd="36dp"
+                            android:layout_marginRight="36dp"
+                            android:layout_marginBottom="103dp" />
 
                         <TextView
                             android:id="@+id/TextNombre"
@@ -45,11 +90,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginLeft="100dp"
                             android:layout_marginEnd="120dp"
-                            android:layout_marginBottom="440dp"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"></EditText>
+                            android:layout_marginBottom="440dp"></EditText>
 
                         <TextView
                             android:id="@+id/TextApellidos"
@@ -75,11 +116,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginLeft="100dp"
                             android:layout_marginEnd="120dp"
-                            android:layout_marginBottom="400dp"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"></EditText>
+                            android:layout_marginBottom="400dp"></EditText>
                         <TextView
                             android:id="@+id/TextCorreo"
                             android:layout_width="180dp"
@@ -105,10 +142,6 @@
                             android:layout_marginEnd="120dp"
                             android:layout_marginRight="120dp"
                             android:layout_marginBottom="360dp"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
                             ></EditText>
                         <TextView
                             android:id="@+id/TextTelefono"
@@ -134,11 +167,7 @@
                             android:layout_marginLeft="100dp"
                             android:layout_marginEnd="120dp"
                             android:layout_marginRight="120dp"
-                            android:layout_marginBottom="320dp"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"></EditText>
+                            android:layout_marginBottom="320dp"></EditText>
                         <TextView
                             android:id="@+id/TextUbicacion"
                             android:layout_width="180dp"
@@ -163,11 +192,7 @@
                             android:layout_marginLeft="100dp"
                             android:layout_marginEnd="120dp"
                             android:layout_marginRight="120dp"
-                            android:layout_marginBottom="280dp"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"></EditText>
+                            android:layout_marginBottom="280dp"></EditText>
                         <TextView
                             android:id="@+id/TextSexo"
                             android:layout_width="180dp"
@@ -192,11 +217,7 @@
                             android:layout_marginLeft="100dp"
                             android:layout_marginEnd="120dp"
                             android:layout_marginRight="120dp"
-                            android:layout_marginBottom="240dp"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"></EditText>
+                            android:layout_marginBottom="240dp"></EditText>
                         <TextView
                             android:id="@+id/TextObjetivos"
                             android:layout_width="180dp"
@@ -221,11 +242,7 @@
                             android:layout_marginLeft="100dp"
                             android:layout_marginEnd="120dp"
                             android:layout_marginRight="120dp"
-                            android:layout_marginBottom="200dp"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"></EditText>
+                            android:layout_marginBottom="200dp"></EditText>
 
                         <TextView
                             android:id="@+id/TextDescripcion"
@@ -251,22 +268,20 @@
                             android:layout_marginLeft="100dp"
                             android:layout_marginEnd="120dp"
                             android:layout_marginRight="200dp"
-                            android:layout_marginBottom="160dp"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"></EditText>
+                            android:layout_marginBottom="160dp"></EditText>
 
                 </RelativeLayout>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fabedit"
-                    android:src="@android:drawable/ic_menu_edit"
+                    android:id="@+id/fabSave"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end|bottom"
+                    android:layout_gravity="bottom|end"
                     android:layout_margin="16dp"
-                    app:backgroundTint="#F44336"/>
+                    android:clickable="true"
+                    android:src="@android:drawable/ic_menu_save"
+                    app:backgroundTint="@color/black"
+                    app:borderWidth="0dp"/>
 
         </FrameLayout>
 

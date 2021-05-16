@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.InvitarAmigosFragment">
+    tools:context=".Fragments.InvitarAmigosFragment"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:padding="20dp">
 
     <TextView
-        android:id="@+id/textoInvitarEmail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="140dp"
+        android:text="Invitar amigos"
+        android:textSize="@android:dimen/app_icon_size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:text="¿¡¿¡¿¡QUE?!?!?! \n¿Quieres que un amigo entrene con nosotros?
+        \n ¡Hala que bien, nos hace mucha ilusión que quieres compartir la app!
+        \n Para ello simplemente tienes que poner su correo electronico y le llegara una sopresita explicando como puede entrenar con nosotros." />
+
+    <EditText
+        android:id="@+id/et_para"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Email a compartir"
-        android:textSize="36dp" />
+        android:hint="Correo" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/botonInvitarEmail"
+        android:id="@+id/botonInvitar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -23,4 +38,5 @@
         android:src="@mipmap/ic_launcher_web"
         app:backgroundTint="#F44336" />
 
-</FrameLayout>
+
+</LinearLayout>
