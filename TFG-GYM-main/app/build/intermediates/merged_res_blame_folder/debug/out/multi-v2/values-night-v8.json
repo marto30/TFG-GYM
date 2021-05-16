@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\jocee\\AndroidStudioProjects\\TFG-GYM-main\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\jocee\\AndroidStudioProjects\\TFG-GYM-main\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2,-1",
+                        "startColumns": "4,-1",
+                        "startOffsets": "100,-1",
+                        "endLines": "7,-1",
+                        "endColumns": "12,-1",
+                        "endOffsets": "417,-1"
+                    },
+                    "to": {
+                        "startLines": "2,8",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,377",
+                        "endLines": "7,10",
+                        "endColumns": "12,12",
+                        "endOffsets": "372,524"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jocee\\.gradle\\caches\\transforms-2\\files-2.1\\49a425eb020aa8d9cffc945a2839e23d\\appcompat-1.1.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "529,599,683,767,863,965,1067,1161",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "594,678,762,858,960,1062,1156,1245"
+                    }
+                }
+            ]
+        }
+    ]
+}
