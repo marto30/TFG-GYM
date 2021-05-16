@@ -37,7 +37,7 @@ public class RegistrarUsuariosActivity extends AppCompatActivity {
     private ProgressDialog cargando;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-
+     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
