@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/box_inset_layout_padding"
+    android:background="@drawable/fru5"
     tools:context=".Activities.RegistrarUsuariosActivity">
 
     <TextView
         android:id="@+id/TextUsuRegistrar"
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="50dp"
         android:textAlignment="center"
         android:layout_marginTop="70dp"
+        android:textColor="@color/white"
         android:autoSizeTextType="uniform"
         android:text="REGISTRAR USUARIO"/>
 
@@ -27,6 +29,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="150dp"
         android:hint="Ingrese tu nombre*"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textAlignment="center"></EditText>
 
     <EditText
@@ -35,6 +39,8 @@
         android:layout_height="50dp"
         android:layout_below="@id/textUsuNombre"
         android:hint="Ingrese tu apellido(s)*"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textAlignment="center"></EditText>
 
     <EditText
@@ -43,6 +49,8 @@
         android:layout_height="50dp"
         android:layout_below="@id/textUsuApellido"
         android:hint="Ingrese tu correo electronico*"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textAlignment="center"></EditText>
 
     <EditText
@@ -50,6 +58,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Ingresa una contraseña*"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:text="@string/invalid_password"
         android:textAlignment="center"></EditText>
 
     <EditText
@@ -58,6 +69,8 @@
         android:layout_height="50dp"
         android:layout_below="@id/textUsuPassword"
         android:hint="Ingresa telefono*"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textAlignment="center"></EditText>
 
         <TextView
@@ -68,6 +81,8 @@
             android:layout_marginTop="0dp"
             android:layout_below="@id/textUsuTelefono"
             android:autoSizeTextType="uniform"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:text="Elige tu ciudad"/>
         <Spinner
             android:id="@+id/spinnerUsuCiudad"
@@ -80,8 +95,9 @@
             android:layout_marginTop="50dp"
             android:layout_gravity="center"
             android:padding="10dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorAccent"
             android:text="Registrarme"
+            android:textColorHint="@color/white"
             android:textColor="@color/white" />
         <Button
             android:id="@+id/btnUsuLogin"
@@ -91,7 +107,7 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:background="@color/colorPrimaryDark"
-            android:text="Ya estoy reistrado"
+            android:text="Ya estoy registrado"
             android:textColor="@color/white" />
 
     </LinearLayout>

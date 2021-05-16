@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fru5"
+    android:orientation="vertical"
     android:padding="@dimen/box_inset_layout_padding"
     tools:context=".Activities.IniciarSesionActivity"
     tools:deviceIds="wear">
@@ -16,9 +18,11 @@
         <TextView
             android:id="@+id/TextTituloIniciarSesion"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="50dp"
             android:textAlignment="center"
             android:layout_marginTop="140dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:autoSizeTextType="uniform"
             android:text="Iniciar Sesión"/>
 
@@ -27,14 +31,18 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:layout_below="@id/TextTituloIniciarSesion"
-            android:hint="Usuario*"
+            android:hint="Usuario o correo electronico"
             android:textAlignment="center"></EditText>
 
         <EditText
             android:id="@+id/textIniciarPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:layout_below="@id/textIniciarEmail"
             android:hint="Ingresa tu contraseña*"
             android:textAlignment="center"></EditText>
@@ -46,8 +54,8 @@
             android:layout_marginTop="50dp"
             android:layout_gravity="center"
             android:padding="10dp"
-            android:background="@color/colorPrimaryDark"
-            android:text="LOGIN"
+            android:background="@color/colorAccent"
+            android:text="INICIAR SESIÓN"
             android:textColor="@color/white"/>
 
         <Button
