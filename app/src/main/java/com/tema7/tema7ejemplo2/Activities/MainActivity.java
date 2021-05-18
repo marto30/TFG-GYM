@@ -24,6 +24,7 @@ import com.tema7.tema7ejemplo2.Fragments.ChatFragment;
 import com.tema7.tema7ejemplo2.Fragments.ConfiguracionFragment;
 import com.tema7.tema7ejemplo2.Fragments.EmailFragment;
 import com.tema7.tema7ejemplo2.Fragments.EntrenamientoClienteFragment;
+import com.tema7.tema7ejemplo2.Fragments.FavoritoFragment;
 import com.tema7.tema7ejemplo2.Fragments.InfoFragment;
 import com.tema7.tema7ejemplo2.Fragments.InvitarAmigosFragment;
 import com.tema7.tema7ejemplo2.Fragments.PerfilClienteFragment;
